@@ -189,6 +189,13 @@ select.status{min-width:160px}
 footer.site{border-top:1px solid var(--line);margin-top:30px;padding:26px 28px;text-align:center;color:var(--muted);font-size:.85rem;background:var(--paper)}
 footer.site a{color:var(--navy)}
 
+/* feedback fab */
+.fab{position:fixed;right:18px;bottom:18px;z-index:55;background:var(--teal);color:#fff;border:none;border-radius:999px;padding:12px 18px;font-family:inherit;font-weight:700;font-size:.9rem;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.18)}
+.fab:hover{background:var(--teal-dark)}
+.fmodal{position:fixed;inset:0;background:rgba(29,29,27,.45);z-index:56;display:none;align-items:center;justify-content:center;padding:16px}
+.fmodal.open{display:flex}
+.fcard{background:#fff;border-radius:var(--radius);max-width:480px;width:100%;padding:22px;max-height:90vh;overflow-y:auto}
+
 /* toast */
 #toast{
   position:fixed;bottom:20px;left:50%;transform:translateX(-50%);
@@ -308,7 +315,7 @@ footer.site a{color:var(--navy)}
 
   <div class="callout">
     <span class="c-label">Your data stays with you</span>
-    Everything you type is saved automatically in your browser, on your device. Nothing is uploaded anywhere. That also means: if you clear your browser data or switch devices, it's gone. Use the <b>Save backup</b> button (right below, also in the menu) once in a while to download a file with all your work. You can load it back anytime, on any device.
+    Everything you type is saved automatically in your browser, on your device. Nothing you type is uploaded anywhere. (The site only counts visits anonymously: no cookies, nothing about you or your answers.) That also means: if you clear your browser data or switch devices, it's gone. Use the <b>Save backup</b> button (right below, also in the menu) once in a while to download a file with all your work. You can load it back anytime, on any device.
     <div class="btn-row" style="margin:10px 0 2px"><button class="btn small js-export">Save backup</button><button class="btn small ghost js-import">Load backup</button></div>
   </div>
 
@@ -742,9 +749,29 @@ footer.site a{color:var(--navy)}
   <p><b>Job Search Companion</b> · made with ☕ by <a href="https://goodjob.coffee" target="_blank" rel="noopener">Dominika Rogala · Good Job Coffee</a> · <a href="https://www.linkedin.com/in/dominikarogala" target="_blank" rel="noopener">LinkedIn</a></p>
   <p>This is an early version and your feedback shapes it. What helped? What's confusing? What's missing?<br>Tell me: <a href="mailto:dominika@goodjob.coffee">dominika@goodjob.coffee</a></p>
   <p class="small">One favour: please don't share this link widely yet. It's a feedback version for a small circle.</p>
+  <p class="small">Anonymous visit stats by GoatCounter: no cookies, no personal data.</p>
 </footer>
 
 </main>
+</div>
+
+<button class="fab" id="fabBtn">Feedback ☕</button>
+<div class="fmodal" id="fmodal" role="dialog" aria-modal="true" aria-label="Feedback">
+  <div class="fcard">
+    <h3 style="margin:0 0 6px">Help me make this better</h3>
+    <p class="small" style="margin-top:0">Fill in what you want, skip the rest. "Send" opens a ready email to Dominika, nothing goes out behind your back.</p>
+    <label class="f-label" for="fb1">What helped?</label>
+    <textarea id="fb1" rows="2"></textarea>
+    <label class="f-label" for="fb2">What's confusing?</label>
+    <textarea id="fb2" rows="2"></textarea>
+    <label class="f-label" for="fb3">What's missing?</label>
+    <textarea id="fb3" rows="2"></textarea>
+    <div class="btn-row" style="margin-bottom:0">
+      <button class="btn primary" id="fbSend">Send by email</button>
+      <button class="btn" id="fbCopy">Copy instead</button>
+      <button class="btn ghost" id="fbClose">Close</button>
+    </div>
+  </div>
 </div>
 
 <div id="toast"></div>
@@ -1339,6 +1366,22 @@ function toast(msg){
   clearTimeout(toastT); toastT = setTimeout(()=>t.classList.remove("show"), 3200);
 }
 
+/* ============================== feedback ============================== */
+const fmodal = document.getElementById("fmodal");
+document.getElementById("fabBtn").addEventListener("click", ()=>fmodal.classList.add("open"));
+document.getElementById("fbClose").addEventListener("click", ()=>fmodal.classList.remove("open"));
+fmodal.addEventListener("click", e=>{ if(e.target===fmodal) fmodal.classList.remove("open"); });
+function fbBody(){
+  const g = id=>document.getElementById(id).value.trim();
+  return ["What helped:\n"+(g("fb1")||"-"), "What's confusing:\n"+(g("fb2")||"-"), "What's missing:\n"+(g("fb3")||"-")].join("\n\n");
+}
+document.getElementById("fbSend").addEventListener("click", ()=>{
+  location.href = "mailto:dominika@goodjob.coffee?subject=" + encodeURIComponent("Job Search Companion feedback") + "&body=" + encodeURIComponent(fbBody());
+});
+document.getElementById("fbCopy").addEventListener("click", ()=>{
+  navigator.clipboard.writeText(fbBody()).then(()=>toast("Copied. Paste it wherever you talk to Dominika.")).catch(()=>toast("Could not copy, sorry."));
+});
+
 /* ============================== init ============================== */
 function initRender(){
   bindSimple(); renderWyr(); renderClarity(); renderRedflags();
@@ -1349,5 +1392,6 @@ load();
 initRender();
 show(location.hash.slice(1) || "start");
 </script>
+<script data-goatcounter="https://goodjobcoffee.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>
