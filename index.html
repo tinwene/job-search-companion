@@ -506,10 +506,21 @@ footer.site a{color:var(--navy)}
 
   <div class="exercise">
     <span class="e-label">Exercise · Who will you contact this week?</span>
-    <p style="margin-top:0">Write <b>real names of real people</b>: someone who works at an interesting company, an old friend from university or a previous job, a manager you liked working with. For each, decide how you'll reach out <b>this week</b>. And when a chat turns into a real lead, hit <b>&#8594; outreach</b> to copy that person into the Step 4 tracker.</p>
+    <p style="margin-top:0">Write <b>real names of real people</b>: someone who works at an interesting company, an old friend from university or a previous job, a manager you liked working with. For each, decide how you'll reach out <b>this week</b>. And when a chat turns into a real lead, hit <b>+ add to outreach</b> to copy that person onto your outreach list.</p>
     <div class="table-wrap" style="background:#fff"><table class="grid" data-mount="network"></table></div>
     <div class="btn-row" style="margin-bottom:0"><button class="btn primary js-add-network">+ Add person</button></div>
   </div>
+
+  <h2 id="anchor-findpeople">Work your list: find people in each company</h2>
+  <p>Now take the companies from Step 2 and put faces on them. You're still not asking for a job. The goal is a conversation, information, maybe an intro. For each company, play detective for 10 minutes:</p>
+  <ul>
+    <li>Open the company's LinkedIn page and its "People" tab. Anyone you know? Any second-degree connections? A mutual friend can introduce you</li>
+    <li>Find people doing the job you want, and their team lead or manager</li>
+    <li>Look for people from the company who speak at conferences, write a blog or post on LinkedIn. They're the easiest to start with, because you have a genuine opening ("I saw your talk about...")</li>
+    <li>Former employees you know count too. Honest inside view, zero pressure</li>
+  </ul>
+  <p>Add everyone you find to their company below with the status "Just found them". Messaging comes in Step 4. This is the same list you'll see there and on your workboard, it follows you around.</p>
+  <div data-mount="contactGroups"></div>
 
   <h2>New connections</h2>
   <div class="card">
@@ -864,7 +875,7 @@ function show(id){
   document.querySelectorAll(".navlink[data-nav]").forEach(b=>b.classList.toggle("active", b.dataset.nav===id));
   if(id==="start") renderProgress();
   if(id==="step2") renderCompanyTable();
-  if(id==="step3") renderNetworkTable();
+  if(id==="step3"){ renderNetworkTable(); renderContactTable(); }
   if(id==="step4") renderContactTable();
   if(id==="recs") renderRecTable();
   if(id==="board"){ renderProgress(); renderCompanyTable(); renderContactTable(); renderNetworkTable(); renderRecTable(); }
@@ -1006,7 +1017,7 @@ function renderCompanyTable(){
   });
 
   const head = `<thead><tr>
-    <th>Company</th><th>Website</th><th>LinkedIn</th><th>Score</th><th title="People for this company in your outreach tracker (Step 4)">People</th>
+    <th>Company</th><th>Website</th><th>LinkedIn</th><th>Score</th>
     ${act.map(p=>`<th title="${esc(p.t)} (importance ${p.imp})">${esc(shorten(p.t))}</th>`).join("")}
     <th>Notes</th><th></th></tr></thead>`;
 
@@ -1017,7 +1028,6 @@ function renderCompanyTable(){
       <td><input type="text" data-cf="site" value="${esc(c.site)}" placeholder="example.com"></td>
       <td><input type="text" data-cf="li" value="${esc(c.li)}" placeholder="linkedin.com/company/..."></td>
       <td class="score" data-scorecell>${sc===null?"–":sc.toFixed(1)}</td>
-      <td style="white-space:nowrap"><button class="btn small ghost" data-nav="step4" title="Open the outreach tracker">&#128100; ${contactsForCompany(c).length || "+"}</button></td>
       ${act.map(p=>`<td class="rate"><select data-rate="${p.id}">
         <option value=""></option>
         ${[1,2,3,4,5].map(v=>`<option value="${v}" ${Number(c.ratings?.[p.id])===v?"selected":""}>${v}</option>`).join("")}
@@ -1027,7 +1037,7 @@ function renderCompanyTable(){
     </tr>`;
   }).join("");
 
-  const body = head + `<tbody>${rows || `<tr><td colspan="${7+act.length}"><div class="empty-hint">No companies yet. Add your first one, even a "maybe" counts. Aim for 20.</div></td></tr>`}</tbody>`;
+  const body = head + `<tbody>${rows || `<tr><td colspan="${6+act.length}"><div class="empty-hint">No companies yet. Add your first one, even a "maybe" counts. Aim for 20.</div></td></tr>`}</tbody>`;
 
   document.querySelectorAll('[data-mount="companies"]').forEach(tbl=>{
     tbl.innerHTML = body;
@@ -1074,7 +1084,7 @@ function renderNetworkTable(){
       <td><input type="text" data-nf="name" value="${esc(n.name)}" placeholder="Name"></td>
       <td><select data-nf="how"><option value=""></option>${HOWS.map(h=>`<option ${n.how===h?"selected":""}>${h}</option>`).join("")}</select></td>
       <td><input type="text" data-nf="notes" value="${esc(n.notes)}" placeholder="e.g. works at X, ask about Y"></td>
-      <td><button class="btn small ghost" data-tooutreach title="Copy this person to the Outreach tracker in Step 4" ${n.moved?"disabled":""}>${n.moved?"&#10003; added":"&#8594; outreach"}</button></td>
+      <td><button class="btn small ghost" data-tooutreach title="Add this person to your outreach list in Step 4 (no message required yet)" ${n.moved?"disabled":""}>${n.moved?"&#10003; added":"+ add to outreach"}</button></td>
       <td><button class="del" data-deln title="Remove">✕</button></td>
     </tr>`).join("");
   const body = head + `<tbody>${rows || `<tr><td colspan="6"><div class="empty-hint">No names yet. Start with one person, that's enough for this week.</div></td></tr>`}</tbody>`;
@@ -1091,7 +1101,7 @@ function renderNetworkTable(){
         n.moved = true;
         S.contacts.push({id:uid(), companyId:null, company:"", name:n.name, status:STATUSES[0], contact:"", li:"", touch:"", notes:n.notes||""});
         save(); renderNetworkTable(); renderContactTable(); renderProgressSoon();
-        toast(`${n.name} added to the Outreach tracker (Step 4)`);
+        toast(`${n.name} added to your outreach list (Step 4)`);
       });
       tr.querySelector("[data-deln]").addEventListener("click", ()=>{
         S.network = S.network.filter(x=>x.id!==n.id); save(); renderNetworkTable();
