@@ -1,0 +1,1343 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Job Search Companion · Good Job Coffee</title>
+<meta name="description" content="A guided workbook for finding your next job through companies you actually want to work for. By Good Job Coffee.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='44' fill='%2300B0BA'/></svg>">
+<style>
+:root{
+  --teal:#00B0BA;
+  --teal-dark:#008A91;
+  --teal-soft:#E4F6F7;
+  --navy:#195C7F;
+  --plum:#6F164D;
+  --yellow:#F2DA7C;
+  --yellow-soft:#FBF3D8;
+  --ink:#1D1D1B;
+  --muted:#6B6B67;
+  --line:#E7E7E2;
+  --paper:#FFFFFF;
+  --bg:#FBFBF9;
+  --radius:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  color:var(--ink);
+  background:var(--bg);
+  line-height:1.55;
+  font-size:16px;
+}
+a{color:var(--navy)}
+h1,h2,h3,h4{line-height:1.25;font-weight:700}
+h1{font-size:1.7rem;margin:.2em 0 .4em}
+h2{font-size:1.35rem;margin:1.6em 0 .5em}
+h3{font-size:1.05rem;margin:1.3em 0 .4em}
+p{margin:.5em 0}
+.small{font-size:.85rem;color:var(--muted)}
+
+/* ---------- layout ---------- */
+.app{display:flex;min-height:100vh}
+nav.side{
+  width:250px;flex-shrink:0;background:var(--paper);border-right:1px solid var(--line);
+  padding:22px 16px;display:flex;flex-direction:column;gap:4px;
+  position:sticky;top:0;height:100vh;overflow-y:auto;
+}
+.logo-box{padding:4px 8px 14px}
+.logo-box svg{width:120px;height:auto;display:block}
+.appname{font-weight:700;font-size:.95rem;margin:10px 8px 14px;color:var(--ink)}
+.navlink{
+  display:flex;align-items:center;gap:10px;
+  padding:9px 10px;border-radius:10px;border:none;background:none;
+  font:inherit;font-size:.92rem;text-align:left;cursor:pointer;color:var(--ink);width:100%;
+}
+.navlink:hover{background:var(--teal-soft)}
+.navlink.active{background:var(--teal);color:#fff;font-weight:600}
+.navlink .num{
+  width:22px;height:22px;border-radius:50%;flex-shrink:0;
+  display:inline-flex;align-items:center;justify-content:center;
+  background:var(--teal-soft);color:var(--teal-dark);font-size:.75rem;font-weight:700;
+}
+.navlink.active .num{background:rgba(255,255,255,.25);color:#fff}
+.nav-spacer{flex:1}
+.nav-foot{border-top:1px solid var(--line);padding-top:12px;margin-top:12px}
+.save-note{font-size:.78rem;color:var(--muted);padding:2px 8px 8px}
+.save-note b{color:var(--teal-dark)}
+
+main{flex:1;min-width:0}
+.page{max-width:840px;margin:0 auto;padding:36px 28px 80px;display:none}
+.page.visible{display:block}
+.kicker{font-size:.8rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--teal-dark)}
+.lead{font-size:1.05rem;color:#3a3a37}
+
+/* ---------- components ---------- */
+.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px;margin:16px 0}
+.callout{background:var(--yellow-soft);border:1px solid #EFE1AC;border-radius:var(--radius);padding:14px 18px;margin:16px 0}
+.callout .c-label{font-weight:700;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;color:#8a6d1f;display:block;margin-bottom:4px}
+.exercise{background:var(--teal-soft);border:1px solid #C9ECEE;border-radius:var(--radius);padding:18px 20px;margin:18px 0}
+.exercise .e-label{font-weight:700;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;color:var(--teal-dark);display:block;margin-bottom:6px}
+details{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:0;margin:10px 0}
+details summary{cursor:pointer;font-weight:600;padding:13px 18px;border-radius:var(--radius);list-style-position:inside}
+details[open] summary{border-bottom:1px solid var(--line)}
+details .d-body{padding:6px 20px 16px}
+blockquote{margin:.6em 0;padding:.5em 1em;border-left:3px solid var(--teal);background:var(--bg);border-radius:0 8px 8px 0;font-style:italic;color:#3a3a37}
+
+textarea,input[type=text],input[type=url],select{
+  font:inherit;color:var(--ink);background:#fff;border:1px solid var(--line);
+  border-radius:9px;padding:8px 10px;width:100%;
+}
+textarea{resize:vertical;min-height:64px}
+textarea:focus,input:focus,select:focus{outline:2px solid var(--teal);outline-offset:0;border-color:var(--teal)}
+label.f-label{display:block;font-weight:600;font-size:.92rem;margin:14px 0 4px}
+
+button.btn{
+  font:inherit;font-weight:600;font-size:.9rem;cursor:pointer;
+  border-radius:10px;border:1px solid var(--teal);color:var(--teal-dark);
+  background:#fff;padding:8px 14px;
+}
+button.btn:hover{background:var(--teal-soft)}
+button.btn.primary{background:var(--teal);border-color:var(--teal);color:#fff}
+button.btn.primary:hover{background:var(--teal-dark)}
+button.btn.ghost{border-color:var(--line);color:var(--muted)}
+button.btn.small{padding:4px 10px;font-size:.8rem}
+button.btn:disabled{opacity:.55;cursor:default;background:#fff}
+button.del{
+  border:none;background:none;color:#b6b6b0;cursor:pointer;font-size:1rem;padding:4px 6px;border-radius:6px;
+}
+button.del:hover{color:var(--plum);background:#f6ecf2}
+.btn-row{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}
+
+/* meme cards */
+.meme{background:#FFFDF6;border:1px solid #EFE1AC;border-radius:var(--radius);padding:16px 18px;margin:22px auto 6px;max-width:540px;text-align:center}
+.meme .m-top,.meme .m-bot{font-weight:900;text-transform:uppercase;letter-spacing:.03em;line-height:1.3;font-size:1rem}
+.meme svg{display:block;margin:12px auto;height:88px;width:auto}
+.meme .m-credit{font-size:.7rem;color:var(--muted);margin-top:8px;text-transform:none;letter-spacing:0}
+
+/* pager */
+.pager{display:flex;justify-content:space-between;margin-top:40px;gap:10px}
+.pager button{max-width:48%}
+
+/* progress chips */
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0}
+.chip{background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:7px 14px;font-size:.85rem;font-family:inherit;color:var(--ink);cursor:pointer;text-align:left}
+button.chip:hover{border-color:var(--teal);background:var(--teal-soft)}
+h2 .btn.small{vertical-align:middle;margin-left:8px}
+.chip b{color:var(--teal-dark)}
+.chip.done{border-color:var(--teal);background:var(--teal-soft)}
+
+/* would you rather */
+.wyr-pair{display:grid;grid-template-columns:1fr auto 1fr;gap:8px;align-items:stretch;margin:8px 0}
+.wyr-pair .or{align-self:center;font-size:.75rem;font-weight:700;color:var(--muted)}
+.wyr-opt{
+  font:inherit;font-size:.88rem;cursor:pointer;padding:10px 12px;border-radius:10px;
+  border:1px solid var(--line);background:#fff;color:var(--ink);text-align:center;
+}
+.wyr-opt:hover{border-color:var(--teal)}
+.wyr-opt.sel{background:var(--teal);border-color:var(--teal);color:#fff;font-weight:600}
+
+/* priorities */
+.prio-row{display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px dashed var(--line);flex-wrap:wrap}
+.prio-row:last-child{border-bottom:none}
+.prio-label{flex:1;min-width:200px;font-size:.93rem}
+.prio-label input{font-size:.93rem}
+.imp-group{display:flex;gap:4px}
+.imp-btn{
+  width:30px;height:30px;border-radius:50%;border:1px solid var(--line);background:#fff;
+  font:inherit;font-size:.8rem;font-weight:600;cursor:pointer;color:var(--muted);
+}
+.imp-btn:hover{border-color:var(--teal)}
+.imp-btn.sel{background:var(--navy);border-color:var(--navy);color:#fff}
+
+/* checklists */
+.checklist{list-style:none;padding:0;margin:10px 0}
+.checklist li{display:flex;gap:10px;align-items:flex-start;padding:6px 0;border-bottom:1px dashed var(--line)}
+.checklist li:last-child{border-bottom:none}
+.checklist input[type=checkbox]{width:18px;height:18px;margin-top:3px;accent-color:var(--teal);flex-shrink:0}
+.checklist label{cursor:pointer;font-size:.92rem}
+.checklist input:checked + label{color:var(--muted);text-decoration:line-through}
+
+/* tables */
+.table-wrap{overflow-x:auto;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);margin:14px 0}
+table.grid{border-collapse:collapse;width:100%;font-size:.88rem}
+table.grid th,table.grid td{padding:8px 8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+table.grid th{background:var(--bg);font-size:.78rem;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);white-space:nowrap;position:sticky;top:0}
+table.grid td input,table.grid td select,table.grid td textarea{min-width:110px;font-size:.88rem;padding:6px 8px}
+table.grid td textarea{min-height:38px;min-width:150px}
+table.grid td.score{font-weight:700;color:var(--navy);white-space:nowrap;font-size:.95rem}
+table.grid td.rate select{min-width:56px;width:60px}
+table.grid .namecol input{min-width:150px}
+table.grid tr:hover td{background:#FCFCFA}
+
+.empty-hint{padding:18px;color:var(--muted);font-size:.9rem;text-align:center}
+
+select.status{min-width:160px}
+
+/* contact groups */
+.cgroup{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:12px 16px;margin:14px 0}
+.cgroup-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.cgroup-name{font-weight:700}
+.cgroup-sum{color:var(--muted);font-size:.82rem;flex:1}
+.cgroup .table-wrap{margin:10px 0 2px}
+.cgroup .empty-hint{text-align:left;padding:10px 2px}
+
+/* footer */
+footer.site{border-top:1px solid var(--line);margin-top:30px;padding:26px 28px;text-align:center;color:var(--muted);font-size:.85rem;background:var(--paper)}
+footer.site a{color:var(--navy)}
+
+/* toast */
+#toast{
+  position:fixed;bottom:20px;left:50%;transform:translateX(-50%);
+  background:var(--ink);color:#fff;border-radius:999px;padding:9px 18px;font-size:.85rem;
+  opacity:0;pointer-events:none;transition:opacity .25s;z-index:60;
+}
+#toast.show{opacity:.94}
+
+/* mobile */
+.menu-btn{display:none}
+@media (max-width:860px){
+  .app{flex-direction:column}
+  nav.side{
+    position:sticky;top:0;height:auto;width:100%;flex-direction:row;align-items:center;
+    overflow-x:auto;overflow-y:hidden;padding:10px 12px;gap:6px;z-index:50;
+    border-right:none;border-bottom:1px solid var(--line);
+  }
+  .logo-box{padding:0 6px 0 0}
+  .logo-box svg{width:54px}
+  .appname,.save-note,.nav-foot,.nav-spacer{display:none}
+  .navlink{white-space:nowrap;width:auto;font-size:.85rem;padding:7px 10px}
+  .page{padding:24px 16px 60px}
+  .wyr-pair{grid-template-columns:1fr;gap:4px}
+  .wyr-pair .or{text-align:center}
+}
+@media print{
+  nav.side,.pager,.btn-row,button{display:none!important}
+  .page{display:block!important}
+}
+</style>
+</head>
+<body>
+<div class="app">
+
+<nav class="side" id="sidenav">
+  <div class="logo-box"><svg role="img" aria-label="Good Job Coffee" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 432.95 306">
+  
+  <defs>
+    <style>
+      .st0 {
+        fill: #1d1d1b;
+      }
+
+      .st1 {
+        fill: #00b1b9;
+      }
+    </style>
+  </defs>
+  <rect class="st0" x="44.59" y="160" width="9" height="99"/>
+  <path class="st0" d="M107.59,182.5c0-12.43-10.07-22.5-22.5-22.5s-22.5,10.07-22.5,22.5,10.07,22.5,22.5,22.5,22.5-10.07,22.5-22.5ZM85.09,196c-7.46,0-13.5-6.04-13.5-13.5s6.04-13.5,13.5-13.5,13.5,6.04,13.5,13.5-6.04,13.5-13.5,13.5Z"/>
+  <path class="st0" d="M139.09,119.5c12.43,0,22.5-10.07,22.5-22.5s-10.07-22.5-22.5-22.5-22.5,10.07-22.5,22.5,10.07,22.5,22.5,22.5ZM125.86,94.28c.36-1.76,1.06-3.39,2.03-4.83,2.42-3.59,6.53-5.95,11.2-5.95s8.77,2.36,11.2,5.95c.97,1.44,1.67,3.07,2.03,4.83.18.88.27,1.79.27,2.72,0,7.46-6.04,13.5-13.5,13.5s-13.5-6.04-13.5-13.5c0-.93.09-1.84.27-2.72Z"/>
+  <path class="st0" d="M85.09,142c-7.46,0-13.5-6.04-13.5-13.5h-9c0,12.43,10.07,22.5,22.5,22.5s22.5-10.07,22.5-22.5v-54h-22.5c-12.43,0-22.5,10.07-22.5,22.5s10.07,22.5,22.5,22.5c5.07,0,9.74-1.67,13.5-4.5v13.5c0,7.46-6.04,13.5-13.5,13.5ZM85.09,110.5c-7.46,0-13.5-6.04-13.5-13.5s6.04-13.5,13.5-13.5,13.5,6.04,13.5,13.5-6.04,13.5-13.5,13.5Z"/>
+  <path class="st0" d="M193.09,119.5c12.43,0,22.5-10.07,22.5-22.5s-10.07-22.5-22.5-22.5-22.5,10.07-22.5,22.5,10.07,22.5,22.5,22.5ZM193.09,83.5c7.46,0,13.5,6.04,13.5,13.5s-6.04,13.5-13.5,13.5-13.5-6.04-13.5-13.5,6.04-13.5,13.5-13.5Z"/>
+  <path class="st0" d="M247.09,119.5h22.5V43h-9v36c-3.76-2.82-8.43-4.5-13.5-4.5-12.43,0-22.5,10.07-22.5,22.5s10.07,22.5,22.5,22.5ZM247.09,83.5c7.46,0,13.5,6.04,13.5,13.5s-6.04,13.5-13.5,13.5-13.5-6.04-13.5-13.5,6.04-13.5,13.5-13.5Z"/>
+  <path class="st0" d="M215.59,205v27h-9l9,18v9h9v-18h9v-9h-9v-27c0-7.46,6.04-13.5,13.5-13.5v-9c-12.43,0-22.5,10.07-22.5,22.5Z"/>
+  <path class="st0" d="M175.09,214c-12.43,0-22.5,10.07-22.5,22.5s10.07,22.5,22.5,22.5,22.5-10.07,22.5-22.5-10.07-22.5-22.5-22.5ZM175.09,250c-7.46,0-13.5-6.04-13.5-13.5s6.04-13.5,13.5-13.5,13.5,6.04,13.5,13.5-6.04,13.5-13.5,13.5Z"/>
+  <path class="st0" d="M121.09,223c5.88,0,10.88,3.75,12.73,9h9.32c-2.08-10.27-11.16-18-22.05-18-12.43,0-22.5,10.07-22.5,22.5s10.07,22.5,22.5,22.5c10.89,0,19.97-7.73,22.05-18h-9.32c-1.85,5.25-6.85,9-12.73,9-7.46,0-13.5-6.04-13.5-13.5s6.04-13.5,13.5-13.5Z"/>
+  <path class="st0" d="M251.59,205v27h-9l9,18v9h9v-18h9v-9h-9v-27c0-7.46,6.04-13.5,13.5-13.5v-9c-12.43,0-22.5,10.07-22.5,22.5Z"/>
+  <path class="st0" d="M301.09,214c-12.43,0-22.5,10.07-22.5,22.5s10.07,22.5,22.5,22.5h13.5v-9h-13.5c-5.88,0-10.88-3.75-12.73-9h34.78c.3-1.45.45-2.96.45-4.5,0-12.43-10.07-22.5-22.5-22.5ZM288.36,232c1.85-5.25,6.85-9,12.73-9s10.88,3.75,12.73,9h-25.46Z"/>
+  <path class="st0" d="M355.09,214c-12.43,0-22.5,10.07-22.5,22.5s10.07,22.5,22.5,22.5h13.5v-9h-13.5c-5.88,0-10.88-3.75-12.73-9h34.78c.3-1.45.45-2.96.45-4.5,0-12.43-10.07-22.5-22.5-22.5ZM342.36,232c1.85-5.25,6.85-9,12.73-9s10.88,3.75,12.73,9h-25.46Z"/>
+  <circle class="st1" cx="49.09" cy="144.31" r="6.86"/>
+  <circle class="st1" cx="390.95" cy="254.5" r="6.86"/>
+  <path class="st0" d="M139.09,205c12.43,0,22.5-10.07,22.5-22.5s-10.07-22.5-22.5-22.5c-5.07,0-9.74,1.67-13.5,4.5v-36.02h-9v76.53h22.5ZM139.09,169c7.46,0,13.5,6.04,13.5,13.5s-6.04,13.5-13.5,13.5-13.5-6.04-13.5-13.5,6.04-13.5,13.5-13.5Z"/>
+</svg></div>
+  <div class="appname">Job Search Companion</div>
+  <button class="navlink" data-nav="start"><span class="num">☕</span>Start here</button>
+  <button class="navlink" data-nav="step1"><span class="num">1</span>What you're looking for</button>
+  <button class="navlink" data-nav="step2"><span class="num">2</span>Your company list</button>
+  <button class="navlink" data-nav="step3"><span class="num">3</span>Network &amp; gather info</button>
+  <button class="navlink" data-nav="step4"><span class="num">4</span>Reach out</button>
+  <button class="navlink" data-nav="recs"><span class="num">+</span>Recommendations</button>
+  <button class="navlink" data-nav="board"><span class="num">&#9638;</span>My workboard</button>
+  <div class="nav-spacer"></div>
+  <div class="nav-foot">
+    <div class="save-note" id="saveNote">Your answers save automatically <b>in this browser</b>. Nothing is sent anywhere.</div>
+    <div class="btn-row" style="margin:6px 0 0">
+      <button class="btn small js-export">Save backup</button>
+      <button class="btn small ghost js-import">Load backup</button>
+    </div>
+    <input type="file" id="importFile" accept=".json,application/json" style="display:none">
+  </div>
+</nav>
+
+<main>
+
+<!-- ============================== START ============================== -->
+<section class="page" id="page-start">
+  <span class="kicker">Good Job Coffee</span>
+  <h1>Job Search Companion</h1>
+  <p class="lead">A guided workbook for finding your next job by looking for <b>companies you actually want to work for</b>, instead of scrolling through job boards. Based on the Job Search Strategy workshop by Dominika Rogala.</p>
+  <div class="meme" aria-label="meme">
+    <div class="m-top">Day 1 of the job search:</div>
+    <svg viewBox="0 0 120 100" fill="none" stroke="#1D1D1B" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M30 40 h50 v28 a20 20 0 0 1 -20 20 h-10 a20 20 0 0 1 -20 -20 z"/>
+      <path d="M80 46 h6 a12 12 0 0 1 0 24 h-8"/>
+      <path d="M47 16 q-6 9 0 18" stroke="#00B0BA"/>
+      <path d="M63 12 q-6 10 0 20" stroke="#00B0BA"/>
+    </svg>
+    <div class="m-bot">Make coffee. Feel feelings. Then, a plan.</div>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0">How this works</h3>
+    <p>The whole method comes down to two questions:</p>
+    <p><b>1. How do you know what you're looking for?</b> (Step 1)<br>
+    <b>2. How do you search once you know?</b> (Steps 2, 3 and 4)</p>
+    <p>You'll move through four steps:</p>
+    <ol>
+      <li><b>Know what you're looking for</b> - clarify your priorities</li>
+      <li><b>Build your target company list</b> - find companies that match them</li>
+      <li><b>Network and gather information</b> - grow your network and learn what's inside those companies</li>
+      <li><b>Reach out directly</b> - start real conversations</li>
+    </ol>
+    <p>Plus a bonus chapter on recommendations, one of the best ways to strengthen your profile while you search.</p>
+    <p>In practice it's a <b>cycle, not a checklist</b>. Each step feeds the others: conversations add companies to your list, research changes your priorities, outreach grows your network. Come back to this tool regularly, it's built for exactly that.</p>
+  </div>
+
+  <div class="callout">
+    <span class="c-label">Your data stays with you</span>
+    Everything you type is saved automatically in your browser, on your device. Nothing is uploaded anywhere. That also means: if you clear your browser data or switch devices, it's gone. Use the <b>Save backup</b> button (right below, also in the menu) once in a while to download a file with all your work. You can load it back anytime, on any device.
+    <div class="btn-row" style="margin:10px 0 2px"><button class="btn small js-export">Save backup</button><button class="btn small ghost js-import">Load backup</button></div>
+  </div>
+
+  <h2>Your progress</h2>
+  <div class="chips" data-mount="progress"></div>
+
+  <h2>Before you start</h2>
+  <p>Take a break to clear your head. A 5-minute walk counts. So does a longer vacation. Job searching goes better with a reset brain.</p>
+
+  <div class="card">
+    <h3 style="margin-top:0">If you were laid off, read this first</h3>
+    <ul>
+      <li>A layoff is <b>not a reflection of your worth</b> as a person.</li>
+      <li>It's a business decision of a company, not your personal failure. All companies go through cycles of growth and reductions.</li>
+      <li>You can feel sad, angry and frustrated. That's OK.</li>
+    </ul>
+    <p>And one question worth asking: <b>why were you hired in the first place?</b></p>
+    <p>Not by accident. Because you are a competent human being with something real to offer. That hasn't changed.</p>
+    <p>What mindset do you want to take with you going further?</p>
+    <blockquote>"I did a good job in a great team, provided real value, and I can add value in another place again"</blockquote>
+    <p>will serve you much better than</p>
+    <blockquote>"I failed, life is unfair"</blockquote>
+    <p>Keeping that mindset isn't always easy, so here's a practical tool:</p>
+  </div>
+
+  <div class="exercise">
+    <span class="e-label">Exercise · Your credibility builders</span>
+    <p style="margin-top:0">Two practical ways to collect proof of your own good work:</p>
+    <p><b>1. Start a smile file.</b> A folder where you drop screenshots of the nice things people write about your work: an email from a client, a comment in a performance review, a Slack message from a teammate. You can also simply ask a few colleagues to write you something kind. You'll be surprised. Read it whenever the search gets heavy.</p>
+    <p><b>2. List your wins.</b> Favourite projects, problems you solved, people you helped. Start the list here:</p>
+    <textarea data-bind="smile" rows="5" placeholder="My favourite projects... problems I solved... people I helped..."></textarea>
+  </div>
+
+  <div class="pager"><span></span><button class="btn primary" data-nav="step1">Start Step 1: What are you looking for? →</button></div>
+</section>
+
+<!-- ============================== STEP 1 ============================== -->
+<section class="page" id="page-step1">
+  <span class="kicker">Step 1</span>
+  <h1>Know what you're looking for before you start</h1>
+  <p class="lead">This step is here to help you land in a place that's actually right for you, not just the first one that shows up. And even if your answers don't feel concrete or super practical, the very fact that you think them through will help you a lot later.</p>
+  <div class="meme" aria-label="meme">
+    <div class="m-top">I have no idea what I want</div>
+    <svg viewBox="0 0 120 100" fill="none" stroke="#1D1D1B" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M60 22 v68"/><path d="M48 90 h24"/>
+      <path d="M60 28 h-30 l-9 9 9 9 h30 z" stroke="#00B0BA"/>
+      <path d="M60 56 h28 l9 9 -9 9 h-28 z" stroke="#6F164D"/>
+    </svg>
+    <div class="m-bot">But I can list 47 things I don&#8217;t want</div>
+  </div>
+
+  <h2>Warm-up: would you rather...</h2>
+  <p>For each pair, pick the option closer to your heart. There are no wrong answers.</p>
+  <div class="exercise">
+    <span class="e-label">Exercise · Quick choices</span>
+    <div id="wyrList"></div>
+    <label class="f-label" for="wyrTop3">Look at your picks. What do they tell you? Write your top 3 priorities in your own words:</label>
+    <textarea id="wyrTop3" data-bind="wyrTop3" rows="3" placeholder="1. ...&#10;2. ...&#10;3. ..."></textarea>
+  </div>
+
+  <h2 id="anchor-clarity">What are you looking for?</h2>
+  <p>Write down answers to the questions below. They will help you generate criteria for your search. Skip any that don't speak to you, add your own thoughts where they don't fit the boxes.</p>
+  <div class="card" id="clarityFor"></div>
+
+  <h2>What are you NOT looking for?</h2>
+  <p>Sometimes even more important than knowing what you want is knowing what you <b>don't</b> want.</p>
+  <div class="card" id="clarityNot"></div>
+
+  <div class="exercise">
+    <span class="e-label">Exercise · Red flags</span>
+    <p style="margin-top:0">From everything above, pick your <b>3 biggest red flags</b>. Examples from Dominika's own list: no women in leadership roles, no feedback, poor communication, micromanagement, no growth mindset.</p>
+    <div id="redflagList"></div>
+  </div>
+
+  <h2 id="anchor-priorities">Your priorities</h2>
+  <p>Rate how important each aspect of work is for you, from 0 (doesn't matter) to 5 (crucial). Be honest and be picky: if everything is a 5, nothing is. A good rule of thumb: give 4s and 5s to at most four or five things.</p>
+  <p class="small">These ratings power the company scoring in Step 2, so it's worth doing them before you build your list.</p>
+  <div class="card" id="prioList"></div>
+
+  <div class="pager">
+    <button class="btn" data-nav="start">← Start</button>
+    <button class="btn primary" data-nav="step2">Step 2: Build your company list →</button>
+  </div>
+</section>
+
+<!-- ============================== STEP 2 ============================== -->
+<section class="page" id="page-step2">
+  <span class="kicker">Step 2</span>
+  <h1>Build your target company list</h1>
+  <p class="lead">There are far more companies than you can see on job boards. Instead of browsing postings, look for <b>companies you'd like to work in</b> and reach out directly, whether they're hiring publicly or not.</p>
+  <div class="meme" aria-label="meme">
+    <div class="m-top">Job board: 200 openings</div>
+    <svg viewBox="0 0 120 100" fill="none" stroke="#1D1D1B" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M22 86 v-32 h18 v32"/><path d="M46 86 v-48 h20 v48"/><path d="M14 86 h78"/>
+      <circle cx="84" cy="42" r="17" stroke="#00B0BA"/><path d="M96 55 l13 13" stroke="#00B0BA"/>
+    </svg>
+    <div class="m-bot">Me: where are the other 19,800 companies?</div>
+  </div>
+
+  <h2>How to find them</h2>
+
+  <details>
+    <summary>Take one of your priorities and follow it</summary>
+    <div class="d-body">
+      <p><b>Example 1: "I want hybrid work with a commute under 15 minutes."</b></p>
+      <ul>
+        <li>Check business centers in your neighbourhood</li>
+        <li>Check technology parks and business incubators nearby</li>
+        <li>Filter job postings by location, but focus on discovering <i>companies</i>, not openings</li>
+      </ul>
+      <p><b>Example 2: "I want to work remotely for a Polish space tech company."</b></p>
+      <ul>
+        <li>Visit the POLSA (Polish Space Agency) company database</li>
+        <li>Browse the catalog of 300+ companies in the field</li>
+      </ul>
+      <p>In both cases: select the companies matching your other criteria and add them to the list below.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Where do people you know work?</summary>
+    <div class="d-body">
+      <ul>
+        <li>People from university</li>
+        <li>Friends who left your company</li>
+        <li>Team members from your previous companies, where did they move to?</li>
+        <li>That thing your brother-in-law mentioned at a party when you weren't listening, because you didn't think you'd be job hunting</li>
+        <li>Your friend's startup from 5 years ago. What scale are they now?</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary>Where are the people who do what you want to do?</summary>
+    <div class="d-body">
+      <ul>
+        <li>Topic-specific and discussion groups around your technology or industry</li>
+        <li>Industry job offer groups on social media</li>
+        <li>Websites, blogs and YouTube channels about your interests. Companies are often mentioned there or sponsor the content</li>
+        <li>Conference line-ups. Speakers come from a broad spectrum of interesting companies</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary>Source checklist: tick off what you've already tried</summary>
+    <div class="d-body">
+      <ul class="checklist" id="sourceChecklist"></ul>
+    </div>
+  </details>
+
+  <h2 id="anchor-companies">Your company list</h2>
+  <p>Start by finding <b>at least 20 companies</b>. Really search for them, in as many different ways as you can (the strategies above are your menu), not just the few names everyone knows. Only then move on to expanding the list with people and information in Steps 3 and 4.</p>
+  <p>Rate each company 1-5 against your priorities from Step 1. The score is a weighted average, weighted by how important each priority is to you. It's not a verdict, it's a conversation with yourself about where to focus first.</p>
+  <div data-mount="prioWarn"></div>
+  <div class="table-wrap"><table class="grid" data-mount="companies"></table></div>
+  <div class="btn-row">
+    <button class="btn primary js-add-company">+ Add company</button>
+    <button class="btn js-sort-companies">Sort by score</button>
+    <button class="btn ghost js-csv-companies">Download as CSV</button>
+  </div>
+
+  <div class="pager">
+    <button class="btn" data-nav="step1">← Step 1</button>
+    <button class="btn primary" data-nav="step3">Step 3: Network &amp; gather info →</button>
+  </div>
+</section>
+
+<!-- ============================== STEP 3 ============================== -->
+<section class="page" id="page-step3">
+  <span class="kicker">Step 3</span>
+  <h1>Network and gather information</h1>
+  <p class="lead">Refresh old contacts and build new ones. The crucial idea: you're <b>not asking for a job</b>, or even for a referral. You're gathering information that fills your company list, prepares your outreach and quietly broadens your network.</p>
+  <div class="meme" aria-label="meme">
+    <div class="m-top">I&#8217;m not looking for a job</div>
+    <svg viewBox="0 0 120 100" fill="none" stroke="#1D1D1B" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M16 22 h44 v26 h-28 l-11 11 v-11 h-5 z"/>
+      <path d="M60 52 h44 v26 h-7 v11 l-11 -11 h-26 z" stroke="#00B0BA"/>
+    </svg>
+    <div class="m-bot">I&#8217;m looking for information</div>
+  </div>
+
+  <h2>Easy wins first</h2>
+  <ul>
+    <li>Review your LinkedIn messages and find recruiters who contacted you months ago</li>
+    <li>Contact that friend who suggested a job change at a summer party</li>
+    <li>Optimize your LinkedIn profile for recruiter searches: keywords and industry terms, relevant certifications and skills, remove irrelevant information</li>
+  </ul>
+
+  <h2>Old connections: what to actually say</h2>
+  <blockquote>"Can you tell me what it's like working at your current company? What projects are you doing, what departments are there? Who else should I talk to?"</blockquote>
+  <blockquote>"I'm looking for companies that do similar things to yours. Who else operates in this industry?"</blockquote>
+  <blockquote>"Have you heard of other companies where the work environment is as good as at yours?"</blockquote>
+  <blockquote>"I see you used to work at XYZ but now you're somewhere else. I'm considering XYZ because they have interesting projects. Can you tell me what it was like and who I should meet?"</blockquote>
+
+  <div class="exercise">
+    <span class="e-label">Exercise · Who will you contact this week?</span>
+    <p style="margin-top:0">Write <b>real names of real people</b>: someone who works at an interesting company, an old friend from university or a previous job, a manager you liked working with. For each, decide how you'll reach out <b>this week</b>. And when a chat turns into a real lead, hit <b>&#8594; outreach</b> to copy that person into the Step 4 tracker.</p>
+    <div class="table-wrap" style="background:#fff"><table class="grid" data-mount="network"></table></div>
+    <div class="btn-row" style="margin-bottom:0"><button class="btn primary js-add-network">+ Add person</button></div>
+  </div>
+
+  <h2>New connections</h2>
+  <div class="card">
+    <p style="margin-top:0"><b>In person:</b> conferences, meetups, workshops, hackathons. You can attend, organize, present or lead, or simply talk to people.</p>
+    <p><b>Online:</b> virtual events, interest groups, industry groups and forums, freelance platforms, open source projects.</p>
+    <p style="margin-bottom:0">Pick what matches your energy. Networking doesn't have to mean working a room with a name tag.</p>
+  </div>
+
+  <h2>Build your visibility</h2>
+  <ul>
+    <li>Keep a professional image online (LinkedIn up to date, private things private)</li>
+    <li>Share content about your interests</li>
+    <li>Share and comment on others' content</li>
+    <li>Start a blog, podcast or YouTube channel</li>
+    <li>Participate in events</li>
+    <li>Contribute to open source</li>
+  </ul>
+
+  <div class="pager">
+    <button class="btn" data-nav="step2">← Step 2</button>
+    <button class="btn primary" data-nav="step4">Step 4: Reach out →</button>
+  </div>
+</section>
+
+<!-- ============================== STEP 4 ============================== -->
+<section class="page" id="page-step4">
+  <span class="kicker">Step 4</span>
+  <h1>Reach out to companies directly</h1>
+  <p class="lead">You've gathered a lot of information about companies and the people who work there. Time to use it. Track every conversation below so you always know what stage each thread is at.</p>
+  <div class="meme" aria-label="meme">
+    <div class="m-top">&#8220;Dear Sir or Madam&#8221;</div>
+    <svg viewBox="0 0 120 100" fill="none" stroke="#1D1D1B" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M18 48 l86 -24 -52 52 -9 -19 z"/>
+      <path d="M43 57 l61 -33"/>
+      <path d="M20 74 q12 7 24 0" stroke="#00B0BA" stroke-dasharray="3 7"/>
+    </svg>
+    <div class="m-bot">Please. Just write like a human.</div>
+  </div>
+
+  <h2>Two scenarios</h2>
+  <div class="card">
+    <p style="margin-top:0"><b>Scenario A: cold outreach.</b> You chose a company from your list, you don't know anyone there and there's no job posting on their website.</p>
+    <ol>
+      <li>Review everything you learned about the company</li>
+      <li>Find specific contact details, preferably a personal email rather than contact@company</li>
+      <li>Send an email with an interesting subject line and even more interesting content (see below)</li>
+      <li>Attach a CV adapted to their profile</li>
+    </ol>
+    <p><b>Scenario B: warm outreach.</b> You know someone there, for example in marketing.</p>
+    <ol>
+      <li>Review everything you learned about the company</li>
+      <li>Talk to your contact and verify that what you hear matches what you want from work</li>
+      <li>Ask for an intro to someone from the department you'd want to join</li>
+      <li>Best case: next day you're already talking with that person. At minimum your CV arrives from someone known, so there's a much better chance someone reads it</li>
+    </ol>
+  </div>
+
+  <div class="callout">
+    <span class="c-label">Instead of a cover letter</span>
+    Write a sincere email in your own direct, informal words about why you want to work there. Better a super simple tailored message than a generic template. Two tone checks: imagine you're writing to a friendly former manager about why you want to change teams. Or imagine a colleague asking over coffee why you actually want to work there. That's the story to tell, and that's the level of formality.
+  </div>
+
+  <details>
+    <summary>The personal touch: how to open a cold message</summary>
+    <div class="d-body">
+      <p>Cold messages work much better with a genuine, specific anchor. Some options:</p>
+      <ul>
+        <li>I read your blog post / newsletter / listened to your podcast / attended your webinar</li>
+        <li>I used your product / your open source project</li>
+        <li>Your content helped me solve a specific problem (say which one)</li>
+        <li>I shared your content</li>
+        <li>Tell them what you genuinely like about what they do, and why</li>
+        <li>I found you via {someone they already know}</li>
+        <li>I talked to {someone you both know} and they mentioned you</li>
+        <li>I saw you mentioned by {someone or somewhere specific}</li>
+        <li>Get an introduction from a mutual friend, or from someone you simply talked to</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary>Tips for finding (almost) anyone's email</summary>
+    <div class="d-body">
+      <ol>
+        <li>Try first name + domain name</li>
+        <li>Facebook business page → About → Contact information</li>
+        <li>Reply directly to their email newsletter</li>
+        <li>LinkedIn (Premium users can message directly)</li>
+        <li><a href="https://hunter.io/" target="_blank" rel="noopener">hunter.io</a></li>
+        <li><a href="https://findthatlead.com" target="_blank" rel="noopener">findthatlead.com</a></li>
+        <li><a href="https://rocketreach.co" target="_blank" rel="noopener">rocketreach.co</a></li>
+        <li>Read: <a href="https://www.criminallyprolific.com/find-anyones-email/" target="_blank" rel="noopener">find anyone's email (criminallyprolific.com)</a></li>
+        <li>Read: <a href="https://ahrefs.com/blog/find-email-address/" target="_blank" rel="noopener">find email addresses (ahrefs.com)</a></li>
+      </ol>
+    </div>
+  </details>
+
+  <h2 id="anchor-contacts">Outreach tracker</h2>
+  <p>Companies from your list in Step 2 show up here automatically, so you never type them twice. Add the people you find for each one and update their status as things move, so you always know what's sent, what's waiting and what needs a nudge. People not tied to a company from the list live under "Other people".</p>
+  <div data-mount="contactGroups"></div>
+  <div class="btn-row">
+    <button class="btn ghost js-csv-contacts">Download as CSV</button>
+  </div>
+
+  <div class="pager">
+    <button class="btn" data-nav="step3">← Step 3</button>
+    <button class="btn primary" data-nav="recs">Bonus: Recommendations →</button>
+  </div>
+</section>
+
+<!-- ============================== RECOMMENDATIONS ============================== -->
+<section class="page" id="page-recs">
+  <span class="kicker">Bonus chapter</span>
+  <h1>Recommendations</h1>
+  <p class="lead">Whether it's for your LinkedIn profile, personal website or a file attached to your CV, recommendations are a great way to build your credentials. And asking for them is a perfect action to take <b>while</b> you search.</p>
+  <div class="meme" aria-label="meme">
+    <div class="m-top">&#8220;John is a great team player&#8221;</div>
+    <svg viewBox="0 0 120 100" fill="none" stroke="#1D1D1B" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M60 16 l9 19 21 3 -15 15 3 21 -18 -10 -18 10 3 -21 -15 -15 21 -3 z" stroke="#6F164D"/>
+      <path d="M22 30 l0 0" stroke="#00B0BA"/><path d="M97 26 l0 0" stroke="#00B0BA"/>
+      <path d="M100 62 l0 0" stroke="#00B0BA"/><path d="M18 68 l0 0" stroke="#00B0BA"/>
+    </svg>
+    <div class="m-bot">Cool. But what did John actually do?</div>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0">Aim for 360° recommendations</h3>
+    <p>Each perspective adds credibility:</p>
+    <ul>
+      <li>From your manager</li>
+      <li>From teammates</li>
+      <li>From your direct reports, or someone you mentored</li>
+      <li>From other teams or working groups</li>
+    </ul>
+    <p><b>Give and receive. It goes both ways!</b> Writing recommendations for others is often the easiest way to receive them.</p>
+    <p style="margin-bottom:0"><i>"I don't feel comfortable asking..."</i> Imagine someone asked you. How would you react? Exactly.</p>
+  </div>
+
+  <h2>How to ask</h2>
+  <ul>
+    <li><b>Simply</b> :) "Hey, would you write me a LinkedIn recommendation?"</li>
+    <li><b>Pro version:</b> "Hey, would you write me a LinkedIn recommendation? Could you emphasize how good I am at X, Y, Z? That's what matters most to me right now."</li>
+    <li><b>Pro pro version:</b> same as above, plus you send links to articles with great recommendation examples</li>
+    <li><b>For advanced:</b> "Hey, would you write me a recommendation? I'm attaching a template where I filled in the elements most important to me. Could you complete it and post it on my profile?"</li>
+  </ul>
+
+  <h2>How to write one (for others, or as a template for yours)</h2>
+  <div class="card">
+    <p style="margin-top:0"><b>Worth including:</b></p>
+    <ul>
+      <li>Relationship: how you know each other, the character of your work together, how long</li>
+      <li>What was this person responsible for? What problems did they help solve, how did they influence your work?</li>
+      <li>What qualities of this person are valuable to you or were helpful at work</li>
+      <li>Something personal, if there is something. Nothing forced</li>
+      <li>A call to action or direct recommendation</li>
+    </ul>
+    <p><b>Avoid general statements</b> like "he's a good teammate", "her responsibilities included...", "he works hard". They add nothing.</p>
+    <p style="margin-bottom:0"><b>Facts and actions beat adjectives.</b> Compare: <i>"John is a great team player who always works hard"</i> vs <i>"James examined customer data and influenced pricing strategies that boosted margins by 25%"</i>. You can use AI to help you draft, but make sure the final version reflects your true thoughts and doesn't sound machine-generated. Before posting, show the person what you wrote and ask if it suits them.</p>
+  </div>
+
+  <details>
+    <summary>Example recommendations for different relationships</summary>
+    <div class="d-body">
+      <p><b>For a colleague you managed:</b><br><i>"I've worked with Sally for over 5 years. I first met Sally when she was hired onto the marketing team as a coordinator, since then she has been promoted several times. Sally has some of the top marketing skills needed to help organizations stand out in an increasingly noisy environment. She led the team's branding, marketing and communications successfully. What I really enjoy about Sally is her ability to bring people together, she is a true professional and I would highly recommend her for any role."</i></p>
+      <p><b>For a colleague from another team:</b><br><i>"I have enjoyed working with Sam for the last year. Our teams worked closely together to help build out the company's project management process. I found him to be hard-working, bright, and a skilled communicator. I particularly enjoyed his sense of humor in the face of what can sometimes be a stressful situation when faced with tight deadlines. But what makes him stand out is his willingness to help others. I am glad to have worked with him and have no hesitation recommending him to potential employers."</i></p>
+      <p><b>For a manager:</b><br><i>"Jane was my manager for over 3 years. I very much enjoyed working with her on many projects throughout her tenure. She sets realistic goals and gives clear instructions and feedback. She instills pride, confidence, and positive energy in everyone on her team. I would welcome the opportunity to work with her again. If you have the chance to work with Jane, take it!"</i></p>
+      <p><b>For an intern:</b><br><i>"Małgorzata is a very detail-oriented and fast-working person. She was an intern in my R&amp;D department and conducted an in-depth research of enclosures manufacturing technologies and biocompatible materials. Thanks to her technical and presentation skills, the results of her work were appreciated by all of the team members. During her internship Małgorzata worked independently and planned her work perfectly."</i></p>
+      <p><b>Stand-out openings:</b><br><i>"Karen is an outstanding developer. I've worked with her for X years..."</i><br><i>"200% of quota? That is what you'll get if you are lucky enough to have Sarah lead your team."</i></p>
+    </div>
+  </details>
+
+  <h2>Who could you ask? Who could you write for?</h2>
+  <p>Colleagues and teammates, your manager, internal and external clients, people from workshops or volunteering, people from previous workplaces, people who know you from outside work (a sports club counts).</p>
+
+  <div class="exercise">
+    <span class="e-label" id="anchor-recs">Tracker · Recommendations</span>
+    <div class="table-wrap" style="background:#fff"><table class="grid" data-mount="recs"></table></div>
+    <div class="btn-row" style="margin-bottom:0"><button class="btn primary js-add-rec">+ Add person</button></div>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0">That's the whole framework ☕</h3>
+    <p>Remember: it's a cycle. New conversations will add companies to your list, new research will sharpen your priorities, and some outreach will end in an offer while other threads will simply grow your network. Both outcomes count.</p>
+    <p style="margin-bottom:0">Be proactive, authentic and strategic, and keep working through your list. Good luck!</p>
+  </div>
+
+  <div class="pager">
+    <button class="btn" data-nav="step4">← Step 4</button>
+    <button class="btn primary" data-nav="start">Back to start →</button>
+  </div>
+</section>
+
+<!-- ============================== WORKBOARD ============================== -->
+<section class="page" id="page-board">
+  <span class="kicker">Workboard</span>
+  <h1>My workboard</h1>
+  <p class="lead">All your working tables in one place, no reading required. Day-to-day mode: add, update, tick off. The full guidance stays in Steps 1-4 and the Recommendations chapter.</p>
+  <div class="chips" data-mount="progress"></div>
+
+  <h2>Your company list <button class="btn small ghost" data-nav="step2">guidance</button></h2>
+  <div data-mount="prioWarn"></div>
+  <div class="table-wrap"><table class="grid" data-mount="companies"></table></div>
+  <div class="btn-row">
+    <button class="btn primary js-add-company">+ Add company</button>
+    <button class="btn js-sort-companies">Sort by score</button>
+    <button class="btn ghost js-csv-companies">Download as CSV</button>
+  </div>
+
+  <h2>Outreach tracker <button class="btn small ghost" data-nav="step4">guidance</button></h2>
+  <div data-mount="contactGroups"></div>
+  <div class="btn-row"><button class="btn ghost js-csv-contacts">Download as CSV</button></div>
+
+  <h2>Recommendations <button class="btn small ghost" data-nav="recs">guidance</button></h2>
+  <div class="table-wrap"><table class="grid" data-mount="recs"></table></div>
+  <div class="btn-row"><button class="btn primary js-add-rec">+ Add person</button></div>
+</section>
+
+<footer class="site">
+  <p><b>Job Search Companion</b> · made with ☕ by <a href="https://goodjob.coffee" target="_blank" rel="noopener">Dominika Rogala · Good Job Coffee</a> · <a href="https://www.linkedin.com/in/dominikarogala" target="_blank" rel="noopener">LinkedIn</a></p>
+  <p>This is an early version and your feedback shapes it. What helped? What's confusing? What's missing?<br>Tell me: <a href="mailto:dominika@goodjob.coffee">dominika@goodjob.coffee</a></p>
+  <p class="small">One favour: please don't share this link widely yet. It's a feedback version for a small circle.</p>
+</footer>
+
+</main>
+</div>
+
+<div id="toast"></div>
+
+<script>
+"use strict";
+/* ============================== data ============================== */
+const LS_KEY = "gjc-job-search-companion-v1";
+
+const WYR = [
+  {id:"w1", a:"High salary in a bad environment", b:"Lower salary with an amazing team"},
+  {id:"w2", a:"Remote work with limited career growth", b:"Office work with a fast promotion track"},
+  {id:"w3", a:"Job security in a boring role", b:"An exciting startup with uncertainty"},
+  {id:"w4", a:"Work-life balance", b:"Prestige and recognition"},
+  {id:"w5", a:"Learning new skills", b:"Using expertise you already have"}
+];
+
+const CLARITY_FOR = [
+  {id:"q1", t:"What do I like doing?"},
+  {id:"q2", t:"What am I good at?"},
+  {id:"q3", t:"What problems do I want to solve? What projects do I want to participate in?"},
+  {id:"q4", t:"What kind of people do I want to work with?"},
+  {id:"q5", t:"What kind of company? Big or small, local or international?"},
+  {id:"q6", t:"What technologies and tools suit me?"},
+  {id:"q7", t:"Do I want to work in an office, remotely, hybrid?"}
+];
+const CLARITY_NOT = [
+  {id:"q8", t:"What do I definitely not want to do?"},
+  {id:"q9", t:"What kind of people do I not want to work with?"},
+  {id:"q10", t:"What kind of company would I never work for?"},
+  {id:"q11", t:"What technologies and tools do I hate working with?"},
+  {id:"q12", t:"What industries are a no-go for me?"},
+  {id:"q13", t:"What tasks are boring? What kind of projects feel like a waste of time?"},
+  {id:"q14", t:"What values are a deal-breaker for me?"}
+];
+
+const PRIORITIES = [
+  {id:"salary", t:"Salary and benefits"},
+  {id:"location", t:"Location"},
+  {id:"processes", t:"Processes and work style"},
+  {id:"culture", t:"Organization culture, company values"},
+  {id:"people", t:"People you'll work with"},
+  {id:"flexibility", t:"Flexibility"},
+  {id:"development", t:"Development opportunities and clear promotion path"},
+  {id:"opinions", t:"Employee opinions"},
+  {id:"reputation", t:"Company reputation in the industry"},
+  {id:"stability", t:"Stability"},
+  {id:"innovation", t:"Innovation and exciting projects"}
+];
+
+const SOURCES = [
+  "Topic-specific and discussion groups related to your technology/industry",
+  "Industry job offer groups on social media",
+  "Websites, blogs, YouTube channels about your interests",
+  "Interesting conference line-ups",
+  "Friends and family",
+  "Blogs or newsletters you've subscribed to",
+  "Podcasts you listen to",
+  "Courses or other products you've bought",
+  "University colleagues",
+  "Services you use",
+  "People you've interacted with in communities",
+  "GitHub project contributors",
+  "Companies you worked at in the past",
+  "Friends who left your company",
+  "Search: “KEYWORD” + software",
+  "Search: “KEYWORD” + services",
+  "Who is advertising on KEYWORD results pages",
+  "Facebook group search",
+  "Pages liked by people who like “{a page in your field}”",
+  "LinkedIn group search",
+  "Quora answers"
+];
+
+const STATUSES = ["Just found them","Message sent","Asked someone for intro","Talked to them","Got a reply","Interview scheduled","Not now"];
+const TOUCHES = [
+  "I read your blog post / newsletter / listened to your podcast",
+  "I used your product / open source project",
+  "Your content helped me solve a specific problem",
+  "I shared your content",
+  "I genuinely like what you do (told them why)",
+  "I found you via someone they already know",
+  "Someone we both know mentioned you",
+  "I saw you mentioned somewhere specific",
+  "Introduction from a mutual friend"
+];
+const HOWS = ["Call","Text","Message on social media","E-mail","In person"];
+const REC_DIR = ["I want to receive one","I want to write one for them"];
+const REC_STATUS = ["Not started","Asked / drafting","Done ✓"];
+
+/* ============================== state ============================== */
+let S = defaultState();
+function defaultState(){
+  return {
+    v:1, smile:"", wyr:{}, wyrTop3:"", clarity:{}, redflags:["","",""],
+    prios:{}, customPrios:[{id:"c1",label:"",imp:0},{id:"c2",label:"",imp:0},{id:"c3",label:"",imp:0}],
+    sources:{}, companies:[], network:[], contacts:[], recs:[]
+  };
+}
+function load(){
+  try{
+    const raw = localStorage.getItem(LS_KEY);
+    if(raw){ S = Object.assign(defaultState(), JSON.parse(raw)); }
+  }catch(e){ console.warn("load failed", e); }
+}
+let saveT = null;
+function save(){
+  clearTimeout(saveT);
+  saveT = setTimeout(()=>{
+    try{ localStorage.setItem(LS_KEY, JSON.stringify(S)); flashSaved(); }
+    catch(e){ toast("Could not save. Your browser storage may be full or blocked."); }
+  }, 250);
+}
+function flashSaved(){
+  const n = document.getElementById("saveNote");
+  if(!n) return;
+  n.innerHTML = "Saved ✓ &nbsp;<span style='font-weight:400'>All changes stay in this browser.</span>";
+}
+const uid = () => Math.random().toString(36).slice(2,9);
+const esc = s => String(s ?? "").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+
+/* ============================== navigation ============================== */
+const PAGES = ["start","step1","step2","step3","step4","recs","board"];
+function show(id){
+  if(!PAGES.includes(id)) id = "start";
+  document.querySelectorAll(".page").forEach(p=>p.classList.remove("visible"));
+  document.getElementById("page-"+id).classList.add("visible");
+  document.querySelectorAll(".navlink[data-nav]").forEach(b=>b.classList.toggle("active", b.dataset.nav===id));
+  if(id==="start") renderProgress();
+  if(id==="step2") renderCompanyTable();
+  if(id==="step3") renderNetworkTable();
+  if(id==="step4") renderContactTable();
+  if(id==="recs") renderRecTable();
+  if(id==="board"){ renderProgress(); renderCompanyTable(); renderContactTable(); renderNetworkTable(); renderRecTable(); }
+  window.scrollTo({top:0});
+  if(location.hash !== "#"+id) history.replaceState(null,"","#"+id);
+}
+document.addEventListener("click", e=>{
+  const nav = e.target.closest("[data-nav]");
+  if(nav){ show(nav.dataset.nav); }
+});
+window.addEventListener("hashchange", ()=>show(location.hash.slice(1)));
+
+/* ============================== simple bindings ============================== */
+function bindSimple(){
+  document.querySelectorAll("[data-bind]").forEach(el=>{
+    const k = el.dataset.bind;
+    el.value = S[k] || "";
+    el.addEventListener("input", ()=>{ S[k] = el.value; save(); });
+  });
+}
+
+/* ============================== would you rather ============================== */
+function renderWyr(){
+  const box = document.getElementById("wyrList");
+  box.innerHTML = WYR.map(p=>`
+    <div class="wyr-pair" data-pair="${p.id}">
+      <button type="button" class="wyr-opt ${S.wyr[p.id]==="a"?"sel":""}" data-opt="a">${esc(p.a)}</button>
+      <span class="or">OR</span>
+      <button type="button" class="wyr-opt ${S.wyr[p.id]==="b"?"sel":""}" data-opt="b">${esc(p.b)}</button>
+    </div>`).join("");
+  box.querySelectorAll(".wyr-opt").forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+      const pair = btn.closest(".wyr-pair").dataset.pair;
+      S.wyr[pair] = btn.dataset.opt; save();
+      btn.closest(".wyr-pair").querySelectorAll(".wyr-opt").forEach(b=>b.classList.toggle("sel", b===btn));
+    });
+  });
+}
+
+/* ============================== clarity ============================== */
+function renderClarity(){
+  const make = (list, mount)=>{
+    mount.innerHTML = list.map(q=>`
+      <label class="f-label" for="cl-${q.id}">${esc(q.t)}</label>
+      <textarea id="cl-${q.id}" rows="2" data-clarity="${q.id}" placeholder="..."></textarea>`).join("");
+    mount.querySelectorAll("[data-clarity]").forEach(t=>{
+      t.value = S.clarity[t.dataset.clarity] || "";
+      t.addEventListener("input", ()=>{ S.clarity[t.dataset.clarity] = t.value; save(); });
+    });
+  };
+  make(CLARITY_FOR, document.getElementById("clarityFor"));
+  make(CLARITY_NOT, document.getElementById("clarityNot"));
+}
+function renderRedflags(){
+  const box = document.getElementById("redflagList");
+  box.innerHTML = [0,1,2].map(i=>`
+    <label class="f-label" for="rf-${i}">Red flag ${i+1}</label>
+    <input type="text" id="rf-${i}" data-rf="${i}" placeholder="...">`).join("");
+  box.querySelectorAll("[data-rf]").forEach(inp=>{
+    inp.value = S.redflags[inp.dataset.rf] || "";
+    inp.addEventListener("input", ()=>{ S.redflags[inp.dataset.rf] = inp.value; save(); });
+  });
+}
+
+/* ============================== priorities ============================== */
+function impButtons(cur, attrs){
+  return `<span class="imp-group">${[0,1,2,3,4,5].map(v=>
+    `<button type="button" class="imp-btn ${cur===v?"sel":""}" ${attrs} data-imp="${v}">${v}</button>`).join("")}</span>`;
+}
+function renderPriorities(){
+  const box = document.getElementById("prioList");
+  let html = PRIORITIES.map(p=>`
+    <div class="prio-row">
+      <span class="prio-label">${esc(p.t)}</span>
+      ${impButtons(S.prios[p.id] ?? 0, `data-prio="${p.id}"`)}
+    </div>`).join("");
+  html += S.customPrios.map((c,i)=>`
+    <div class="prio-row">
+      <span class="prio-label"><input type="text" data-cplabel="${i}" placeholder="Your own priority ${i+1}..." value="${esc(c.label)}"></span>
+      ${impButtons(c.imp ?? 0, `data-cpimp="${i}"`)}
+    </div>`).join("");
+  box.innerHTML = html;
+
+  box.querySelectorAll("[data-prio]").forEach(b=>b.addEventListener("click", ()=>{
+    S.prios[b.dataset.prio] = +b.dataset.imp; save();
+    selectImp(b);
+  }));
+  box.querySelectorAll("[data-cpimp]").forEach(b=>b.addEventListener("click", ()=>{
+    S.customPrios[b.dataset.cpimp].imp = +b.dataset.imp; save();
+    selectImp(b);
+  }));
+  box.querySelectorAll("[data-cplabel]").forEach(inp=>inp.addEventListener("input", ()=>{
+    S.customPrios[inp.dataset.cplabel].label = inp.value; save();
+  }));
+}
+function selectImp(btn){
+  btn.parentElement.querySelectorAll(".imp-btn").forEach(b=>b.classList.toggle("sel", b===btn));
+}
+function activePriorities(){
+  const act = PRIORITIES.filter(p=>(S.prios[p.id]||0) > 0).map(p=>({id:p.id, t:p.t, imp:S.prios[p.id]}));
+  S.customPrios.forEach(c=>{
+    if((c.imp||0) > 0 && c.label.trim()) act.push({id:c.id, t:c.label.trim(), imp:c.imp});
+  });
+  return act;
+}
+
+/* ============================== sources checklist ============================== */
+function renderSources(){
+  const ul = document.getElementById("sourceChecklist");
+  ul.innerHTML = SOURCES.map((s,i)=>`
+    <li><input type="checkbox" id="src-${i}" data-src="${i}" ${S.sources[i]?"checked":""}>
+    <label for="src-${i}">${esc(s)}</label></li>`).join("");
+  ul.querySelectorAll("[data-src]").forEach(cb=>cb.addEventListener("change", ()=>{
+    S.sources[cb.dataset.src] = cb.checked; save();
+  }));
+}
+
+/* ============================== companies ============================== */
+function companyScore(c, act){
+  const totalW = act.reduce((s,p)=>s+p.imp, 0);
+  if(!totalW) return null;
+  const sum = act.reduce((s,p)=>s + p.imp * (Number(c.ratings?.[p.id]) || 0), 0);
+  return sum/totalW;
+}
+function shorten(t){
+  const map = {
+    "Salary and benefits":"Salary","Organization culture, company values":"Culture",
+    "People you'll work with":"People","Development opportunities and clear promotion path":"Development",
+    "Employee opinions":"Opinions","Company reputation in the industry":"Reputation",
+    "Innovation and exciting projects":"Innovation","Processes and work style":"Processes"
+  };
+  return map[t] || (t.length>14 ? t.slice(0,13)+"…" : t);
+}
+function renderCompanyTable(){
+  const act = activePriorities();
+  document.querySelectorAll('[data-mount="prioWarn"]').forEach(w=>{
+    w.innerHTML = act.length ? "" :
+      `<div class="callout"><span class="c-label">Scoring locked</span>Rate your priorities in <a href="#step1" data-nav="step1">Step 1</a> first. Then each company gets rating columns and a score weighted by what matters to you.</div>`;
+  });
+
+  const head = `<thead><tr>
+    <th>Company</th><th>Website</th><th>LinkedIn</th><th>Score</th><th title="People for this company in your outreach tracker (Step 4)">People</th>
+    ${act.map(p=>`<th title="${esc(p.t)} (importance ${p.imp})">${esc(shorten(p.t))}</th>`).join("")}
+    <th>Notes</th><th></th></tr></thead>`;
+
+  const rows = S.companies.map(c=>{
+    const sc = companyScore(c, act);
+    return `<tr data-cid="${c.id}">
+      <td class="namecol"><input type="text" data-cf="name" value="${esc(c.name)}" placeholder="Company name"></td>
+      <td><input type="text" data-cf="site" value="${esc(c.site)}" placeholder="example.com"></td>
+      <td><input type="text" data-cf="li" value="${esc(c.li)}" placeholder="linkedin.com/company/..."></td>
+      <td class="score" data-scorecell>${sc===null?"–":sc.toFixed(1)}</td>
+      <td style="white-space:nowrap"><button class="btn small ghost" data-nav="step4" title="Open the outreach tracker">&#128100; ${contactsForCompany(c).length || "+"}</button></td>
+      ${act.map(p=>`<td class="rate"><select data-rate="${p.id}">
+        <option value=""></option>
+        ${[1,2,3,4,5].map(v=>`<option value="${v}" ${Number(c.ratings?.[p.id])===v?"selected":""}>${v}</option>`).join("")}
+      </select></td>`).join("")}
+      <td><textarea data-cf="notes" rows="1" placeholder="...">${esc(c.notes)}</textarea></td>
+      <td><button class="del" data-delc title="Remove">✕</button></td>
+    </tr>`;
+  }).join("");
+
+  const body = head + `<tbody>${rows || `<tr><td colspan="${7+act.length}"><div class="empty-hint">No companies yet. Add your first one, even a "maybe" counts. Aim for 20.</div></td></tr>`}</tbody>`;
+
+  document.querySelectorAll('[data-mount="companies"]').forEach(tbl=>{
+    tbl.innerHTML = body;
+    tbl.querySelectorAll("tr[data-cid]").forEach(tr=>{
+      const c = S.companies.find(x=>x.id===tr.dataset.cid);
+      tr.querySelectorAll("[data-cf]").forEach(el=>{
+        el.addEventListener("input", ()=>{ c[el.dataset.cf] = el.value; save(); });
+        if(el.dataset.cf==="name"){ el.addEventListener("change", ()=>{ renderContactTable(); }); }
+      });
+      tr.querySelectorAll("[data-rate]").forEach(sel=>sel.addEventListener("change", ()=>{
+        c.ratings = c.ratings || {};
+        if(sel.value===""){ delete c.ratings[sel.dataset.rate]; } else { c.ratings[sel.dataset.rate] = +sel.value; }
+        save();
+        const sc = companyScore(c, activePriorities());
+        tr.querySelector("[data-scorecell]").textContent = sc===null ? "–" : sc.toFixed(1);
+        renderProgressSoon();
+      }));
+      tr.querySelector("[data-delc]").addEventListener("click", ()=>{
+        if(!confirm(`Remove ${c.name || "this company"} from the list?`)) return;
+        S.companies = S.companies.filter(x=>x.id!==c.id); save(); renderCompanyTable(); renderContactTable();
+      });
+    });
+  });
+}
+document.querySelectorAll(".js-add-company").forEach(b=>b.addEventListener("click", ()=>{
+  S.companies.push({id:uid(), name:"", site:"", li:"", ratings:{}, notes:""});
+  save(); renderCompanyTable(); renderContactTable();
+  const mount = document.querySelector('.page.visible [data-mount="companies"]') || document.querySelector('[data-mount="companies"]');
+  const rows = mount.querySelectorAll("tr[data-cid]");
+  rows[rows.length-1]?.querySelector("input")?.focus();
+}));
+document.querySelectorAll(".js-sort-companies").forEach(b=>b.addEventListener("click", ()=>{
+  const act = activePriorities();
+  S.companies.sort((a,b)=>(companyScore(b,act)||0)-(companyScore(a,act)||0));
+  save(); renderCompanyTable();
+}));
+
+/* ============================== network plan ============================== */
+function renderNetworkTable(){
+  const head = `<thead><tr><th>Done</th><th>Who (real name!)</th><th>How, this week</th><th>Notes</th><th></th><th></th></tr></thead>`;
+  const rows = S.network.map(n=>`
+    <tr data-nid="${n.id}">
+      <td><input type="checkbox" data-nf-done ${n.done?"checked":""} style="width:18px;height:18px;accent-color:var(--teal)"></td>
+      <td><input type="text" data-nf="name" value="${esc(n.name)}" placeholder="Name"></td>
+      <td><select data-nf="how"><option value=""></option>${HOWS.map(h=>`<option ${n.how===h?"selected":""}>${h}</option>`).join("")}</select></td>
+      <td><input type="text" data-nf="notes" value="${esc(n.notes)}" placeholder="e.g. works at X, ask about Y"></td>
+      <td><button class="btn small ghost" data-tooutreach title="Copy this person to the Outreach tracker in Step 4" ${n.moved?"disabled":""}>${n.moved?"&#10003; added":"&#8594; outreach"}</button></td>
+      <td><button class="del" data-deln title="Remove">✕</button></td>
+    </tr>`).join("");
+  const body = head + `<tbody>${rows || `<tr><td colspan="6"><div class="empty-hint">No names yet. Start with one person, that's enough for this week.</div></td></tr>`}</tbody>`;
+
+  document.querySelectorAll('[data-mount="network"]').forEach(tbl=>{
+    tbl.innerHTML = body;
+    tbl.querySelectorAll("tr[data-nid]").forEach(tr=>{
+      const n = S.network.find(x=>x.id===tr.dataset.nid);
+      tr.querySelectorAll("[data-nf]").forEach(el=>el.addEventListener("input", ()=>{ n[el.getAttribute("data-nf")] = el.value; save(); }));
+      tr.querySelector("[data-nf-done]").addEventListener("change", e=>{ n.done = e.target.checked; save(); });
+      tr.querySelector("[data-tooutreach]").addEventListener("click", ()=>{
+        if(n.moved) return;
+        if(!n.name.trim()){ toast("Add their name first, then send them to the tracker."); return; }
+        n.moved = true;
+        S.contacts.push({id:uid(), companyId:null, company:"", name:n.name, status:STATUSES[0], contact:"", li:"", touch:"", notes:n.notes||""});
+        save(); renderNetworkTable(); renderContactTable(); renderProgressSoon();
+        toast(`${n.name} added to the Outreach tracker (Step 4)`);
+      });
+      tr.querySelector("[data-deln]").addEventListener("click", ()=>{
+        S.network = S.network.filter(x=>x.id!==n.id); save(); renderNetworkTable();
+      });
+    });
+  });
+}
+document.querySelectorAll(".js-add-network").forEach(b=>b.addEventListener("click", ()=>{
+  S.network.push({id:uid(), name:"", how:"", notes:"", done:false});
+  save(); renderNetworkTable();
+  const mount = document.querySelector('.page.visible [data-mount="network"]') || document.querySelector('[data-mount="network"]');
+  const rows = mount.querySelectorAll("tr[data-nid]");
+  rows[rows.length-1]?.querySelector("input[type=text]")?.focus();
+}));
+
+/* ============================== contacts ============================== */
+function companyOfContact(c){
+  if(c.companyId){ const m = S.companies.find(x=>x.id===c.companyId); if(m) return m; }
+  const n = String(c.company||"").trim().toLowerCase();
+  if(!n) return null;
+  return S.companies.find(x=>x.name.trim().toLowerCase()===n) || null;
+}
+function contactsForCompany(co){
+  return S.contacts.filter(c=>companyOfContact(c)===co);
+}
+function contactRow(c, showCompany){
+  return `<tr data-kid="${c.id}">
+      ${showCompany?`<td><input type="text" list="companyNames" data-kf="company" value="${esc(c.company)}" placeholder="Company"></td>`:""}
+      <td class="namecol"><input type="text" data-kf="name" value="${esc(c.name)}" placeholder="Name"></td>
+      <td><select class="status" data-kf="status">${STATUSES.map(s=>`<option ${c.status===s?"selected":""}>${s}</option>`).join("")}</select></td>
+      <td><input type="text" data-kf="contact" value="${esc(c.contact)}" placeholder="email@..."></td>
+      <td><input type="text" data-kf="li" value="${esc(c.li)}" placeholder="linkedin.com/in/..."></td>
+      <td><input type="text" list="touchOptions" data-kf="touch" value="${esc(c.touch)}" placeholder="How will you make it personal?"></td>
+      <td><textarea data-kf="notes" rows="1" placeholder="...">${esc(c.notes)}</textarea></td>
+      <td><button class="del" data-delk title="Remove">✕</button></td>
+    </tr>`;
+}
+function renderContactTable(){
+  const mounts = document.querySelectorAll('[data-mount="contactGroups"]');
+  if(!mounts.length) return;
+  const namedCompanies = S.companies.filter(c=>c.name.trim());
+  const grouped = new Set();
+  let out = "";
+  namedCompanies.forEach(co=>{
+    const list = contactsForCompany(co);
+    list.forEach(c=>grouped.add(c.id));
+    const sent = list.filter(c=>["Message sent","Asked someone for intro","Talked to them","Got a reply","Interview scheduled"].includes(c.status)).length;
+    out += `<div class="cgroup">
+      <div class="cgroup-head"><span class="cgroup-name">${esc(co.name)}</span>
+        <span class="cgroup-sum">${list.length ? `${list.length} ${list.length===1?"person":"people"}${sent?` · ${sent} in motion`:""}` : ""}</span>
+        <button class="btn small" data-addfor="${co.id}">+ Add person</button></div>`;
+    if(list.length){
+      out += `<div class="table-wrap"><table class="grid">
+        <thead><tr><th>Person</th><th>Status</th><th>Email / contact</th><th>LinkedIn</th><th>Personal touch</th><th>Notes</th><th></th></tr></thead>
+        <tbody>${list.map(c=>contactRow(c,false)).join("")}</tbody></table></div>`;
+    } else {
+      out += `<div class="empty-hint">No one here yet. Check LinkedIn, mutual friends and conference line-ups, then add the human you find.</div>`;
+    }
+    out += `</div>`;
+  });
+  const others = S.contacts.filter(c=>!grouped.has(c.id));
+  out += `<div class="cgroup">
+    <div class="cgroup-head"><span class="cgroup-name">Other people</span>
+      <span class="cgroup-sum">not (yet) tied to a company from your list</span>
+      <button class="btn small" data-addfor="">+ Add person</button></div>`;
+  if(others.length){
+    out += `<div class="table-wrap"><table class="grid">
+      <thead><tr><th>Company</th><th>Person</th><th>Status</th><th>Email / contact</th><th>LinkedIn</th><th>Personal touch</th><th>Notes</th><th></th></tr></thead>
+      <tbody>${others.map(c=>contactRow(c,true)).join("")}</tbody></table></div>`;
+  } else if(!namedCompanies.length){
+    out += `<div class="empty-hint">Your companies from Step 2 will show up here automatically. You can also add people independent of the list.</div>`;
+  } else {
+    out += `<div class="empty-hint">Nobody outside your company list yet.</div>`;
+  }
+  out += `</div>`;
+
+  let dl = document.getElementById("companyNames");
+  if(!dl){ dl = document.createElement("datalist"); dl.id = "companyNames"; document.body.appendChild(dl); }
+  dl.innerHTML = namedCompanies.map(co=>`<option value="${esc(co.name)}">`).join("");
+  let dt = document.getElementById("touchOptions");
+  if(!dt){ dt = document.createElement("datalist"); dt.id = "touchOptions"; document.body.appendChild(dt);
+    dt.innerHTML = TOUCHES.map(t=>`<option value="${esc(t)}">`).join(""); }
+
+  mounts.forEach(box=>{
+    box.innerHTML = out;
+    box.querySelectorAll("tr[data-kid]").forEach(tr=>{
+      const c = S.contacts.find(x=>x.id===tr.dataset.kid);
+      tr.querySelectorAll("[data-kf]").forEach(el=>{
+        const ev = el.tagName==="SELECT" ? "change" : "input";
+        el.addEventListener(ev, ()=>{ c[el.dataset.kf] = el.value; save(); renderProgressSoon(); });
+        if(el.dataset.kf==="company"){
+          el.addEventListener("change", ()=>{ c.companyId = null; renderContactTable(); renderCompanyTable(); });
+        }
+        if(el.dataset.kf==="status"){
+          el.addEventListener("change", ()=>{ renderContactTable(); });
+        }
+      });
+      tr.querySelector("[data-delk]").addEventListener("click", ()=>{
+        if(!confirm(`Remove ${c.name || "this contact"}?`)) return;
+        S.contacts = S.contacts.filter(x=>x.id!==c.id); save(); renderContactTable(); renderCompanyTable();
+      });
+    });
+    box.querySelectorAll("[data-addfor]").forEach(b=>b.addEventListener("click", ()=>{
+      const co = S.companies.find(x=>x.id===b.dataset.addfor) || null;
+      const nc = {id:uid(), companyId: co?co.id:null, company: co?co.name:"", name:"", status:STATUSES[0], contact:"", li:"", touch:"", notes:""};
+      S.contacts.push(nc);
+      save(); renderContactTable(); renderCompanyTable();
+      const mount = document.querySelector('.page.visible [data-mount="contactGroups"]') || box;
+      mount.querySelector(`tr[data-kid="${nc.id}"]`)?.querySelector("input")?.focus();
+    }));
+  });
+}
+
+/* ============================== recommendations ============================== */
+function renderRecTable(){
+  const head = `<thead><tr><th>Person</th><th>Direction</th><th>What to emphasize</th><th>Status</th><th></th></tr></thead>`;
+  const rows = S.recs.map(r=>`
+    <tr data-rid="${r.id}">
+      <td class="namecol"><input type="text" data-rf2="name" value="${esc(r.name)}" placeholder="Name"></td>
+      <td><select data-rf2="dir">${REC_DIR.map(d=>`<option ${r.dir===d?"selected":""}>${d}</option>`).join("")}</select></td>
+      <td><input type="text" data-rf2="focus" value="${esc(r.focus)}" placeholder="e.g. leading X project, mentoring"></td>
+      <td><select data-rf2="status">${REC_STATUS.map(s=>`<option ${r.status===s?"selected":""}>${s}</option>`).join("")}</select></td>
+      <td><button class="del" data-delr title="Remove">✕</button></td>
+    </tr>`).join("");
+  const body = head + `<tbody>${rows || `<tr><td colspan="5"><div class="empty-hint">Who comes to mind first? Add them. Asking one person is a great start.</div></td></tr>`}</tbody>`;
+
+  document.querySelectorAll('[data-mount="recs"]').forEach(tbl=>{
+    tbl.innerHTML = body;
+    tbl.querySelectorAll("tr[data-rid]").forEach(tr=>{
+      const r = S.recs.find(x=>x.id===tr.dataset.rid);
+      tr.querySelectorAll("[data-rf2]").forEach(el=>{
+        const ev = el.tagName==="SELECT" ? "change" : "input";
+        el.addEventListener(ev, ()=>{ r[el.dataset.rf2] = el.value; save(); renderProgressSoon(); });
+      });
+      tr.querySelector("[data-delr]").addEventListener("click", ()=>{
+        S.recs = S.recs.filter(x=>x.id!==r.id); save(); renderRecTable();
+      });
+    });
+  });
+}
+document.querySelectorAll(".js-add-rec").forEach(b=>b.addEventListener("click", ()=>{
+  S.recs.push({id:uid(), name:"", dir:REC_DIR[0], focus:"", status:REC_STATUS[0]});
+  save(); renderRecTable();
+  const mount = document.querySelector('.page.visible [data-mount="recs"]') || document.querySelector('[data-mount="recs"]');
+  const rows = mount.querySelectorAll("tr[data-rid]");
+  rows[rows.length-1]?.querySelector("input")?.focus();
+}));
+
+/* ============================== progress ============================== */
+let progT = null;
+function renderProgressSoon(){ clearTimeout(progT); progT = setTimeout(renderProgress, 400); }
+function renderProgress(){
+  const mounts = document.querySelectorAll('[data-mount="progress"]');
+  if(!mounts.length) return;
+  const clarityDone = Object.values(S.clarity).filter(v=>v && v.trim()).length;
+  const priosDone = activePriorities().length;
+  const comp = S.companies.filter(c=>c.name.trim()).length;
+  const contacts = S.contacts.filter(c=>c.name.trim()).length;
+  const IN_MOTION = ["Message sent","Asked someone for intro","Talked to them","Got a reply","Interview scheduled"];
+  const sent = S.contacts.filter(c=>IN_MOTION.includes(c.status)).length;
+  const recs = S.recs.length;
+  const chip = (label, val, goalMet, nav, anchor) =>
+    `<button type="button" class="chip ${goalMet?"done":""}" data-chipnav="${nav}" data-anchor="${anchor}" title="Go there">${label}: <b>${val}</b></button>`;
+  const out =
+    chip("Clarity questions answered", clarityDone+"/14", clarityDone>=10, "step1", "anchor-clarity") +
+    chip("Priorities set", priosDone, priosDone>=3, "step1", "anchor-priorities") +
+    chip("Companies on your list", comp+"/20", comp>=20, "step2", "anchor-companies") +
+    chip("People in outreach tracker", contacts, contacts>=5, "step4", "anchor-contacts") +
+    chip("Conversations in motion", sent, sent>=1, "step4", "anchor-contacts") +
+    chip("Recommendations tracked", recs, recs>=1, "recs", "anchor-recs");
+  mounts.forEach(m=>{
+    m.innerHTML = out;
+    m.querySelectorAll("[data-chipnav]").forEach(ch=>ch.addEventListener("click", ()=>{
+      show(ch.dataset.chipnav);
+      const a = document.getElementById(ch.dataset.anchor);
+      if(a) setTimeout(()=>a.scrollIntoView({behavior:"smooth", block:"start"}), 80);
+    }));
+  });
+}
+
+/* ============================== export / import ============================== */
+function download(name, text, mime){
+  const blob = new Blob([text], {type: mime || "text/plain;charset=utf-8"});
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob); a.download = name;
+  document.body.appendChild(a); a.click();
+  setTimeout(()=>{ URL.revokeObjectURL(a.href); a.remove(); }, 500);
+}
+function csvCell(v){ v = String(v ?? ""); return /[",\n;]/.test(v) ? `"${v.replace(/"/g,'""')}"` : v; }
+function toCSV(headers, rows){
+  return [headers, ...rows].map(r=>r.map(csvCell).join(",")).join("\r\n");
+}
+document.querySelectorAll(".js-export").forEach(b=>b.addEventListener("click", ()=>{
+  const d = new Date().toISOString().slice(0,10);
+  download(`job-search-companion-backup-${d}.json`, JSON.stringify(S, null, 2), "application/json");
+  toast("Backup downloaded. Keep it somewhere safe.");
+}));
+document.querySelectorAll(".js-import").forEach(b=>b.addEventListener("click", ()=>document.getElementById("importFile").click()));
+document.getElementById("importFile").addEventListener("change", e=>{
+  const f = e.target.files[0]; if(!f) return;
+  const rd = new FileReader();
+  rd.onload = ()=>{
+    try{
+      const data = JSON.parse(rd.result);
+      if(typeof data !== "object" || !("companies" in data)) throw new Error("not a backup");
+      if(!confirm("Load this backup? It will replace what's currently in this browser.")) return;
+      S = Object.assign(defaultState(), data);
+      save(); initRender(); show("start");
+      toast("Backup loaded ✓");
+    }catch(err){ toast("This doesn't look like a Job Search Companion backup file."); }
+    e.target.value = "";
+  };
+  rd.readAsText(f);
+});
+document.querySelectorAll(".js-csv-companies").forEach(b=>b.addEventListener("click", ()=>{
+  const act = activePriorities();
+  const headers = ["Company","Website","LinkedIn","Score", ...act.map(p=>p.t), "Notes"];
+  const rows = S.companies.map(c=>{
+    const sc = companyScore(c, act);
+    return [c.name, c.site, c.li, sc===null?"":sc.toFixed(2), ...act.map(p=>c.ratings?.[p.id] ?? ""), c.notes];
+  });
+  download("company-list.csv", toCSV(headers, rows), "text/csv;charset=utf-8");
+}));
+document.querySelectorAll(".js-csv-contacts").forEach(b=>b.addEventListener("click", ()=>{
+  const headers = ["Company","Person","Status","Email/contact","LinkedIn","Personal touch","Notes"];
+  const rows = S.contacts.map(c=>{const co=companyOfContact(c); return [co?co.name:(c.company||""),c.name,c.status,c.contact,c.li,c.touch,c.notes];});
+  download("outreach-contacts.csv", toCSV(headers, rows), "text/csv;charset=utf-8");
+}));
+
+/* ============================== toast ============================== */
+let toastT = null;
+function toast(msg){
+  const t = document.getElementById("toast");
+  t.textContent = msg; t.classList.add("show");
+  clearTimeout(toastT); toastT = setTimeout(()=>t.classList.remove("show"), 3200);
+}
+
+/* ============================== init ============================== */
+function initRender(){
+  bindSimple(); renderWyr(); renderClarity(); renderRedflags();
+  renderPriorities(); renderSources(); renderCompanyTable();
+  renderNetworkTable(); renderContactTable(); renderRecTable(); renderProgress();
+}
+load();
+initRender();
+show(location.hash.slice(1) || "start");
+</script>
+</body>
+</html>
